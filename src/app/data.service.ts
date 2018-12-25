@@ -1,29 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { User } from './user';
+import { Post } from './post';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
 
   private baseUri = 'https://jsonplaceholder.typicode.com';
 
   constructor(private http: HttpClient) { }
 
-  getUsers() {
+  getUsers(): Observable<User[]> {
     const uri = `${this.baseUri}/users`;
   
-    return this.http.get(uri);
+    return this.http.get<User[]>(uri);
   }
 
-  getUser(userId: any) {
+  getUser(userId: number): Observable<User> {
     const uri = `${this.baseUri}/users/${userId}`;
     
-    return this.http.get(uri); 
+    return this.http.get<User>(uri);
   }
 
-  getPosts() {
+  getPosts(): Observable<Post[]> {
     const uri = `${this.baseUri}/posts`;
-    return this.http.get(uri);
+    return this.http.get<Post[]>(uri);
   }
 }

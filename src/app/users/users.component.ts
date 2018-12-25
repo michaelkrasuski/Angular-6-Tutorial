@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { Observable } from 'rxjs';
 import { trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
+import { User } from '../user';
 
 @Component({
   selector: 'app-users',
@@ -33,7 +33,7 @@ animations: [
 
 export class UsersComponent implements OnInit {
 
-  users$: Object;
+  users$: User[];
 
   constructor(private data: DataService) { }
 
