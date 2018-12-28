@@ -10,7 +10,7 @@ import { Post } from './post';
 
 export class DataService {
 
-  private baseUri = 'https://jsonplaceholder.typicode.com';
+  readonly baseUri = 'https://jsonplaceholder.typicode.com';
 
   constructor(private http: HttpClient) { }
 
